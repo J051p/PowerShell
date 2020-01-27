@@ -1,0 +1,81 @@
+###Add-content | PowerShell Append to file### -> appends the content to the specified item or a file, such as adding words to the file.
+////////////////////////////////////////////////////////////////////
+add-content sp.txt -value "PowerShell is available in Windows" -> appends a value to a specific file in the current directory.
+add-content .\*.txt -value "Windows PowerShell" -> appends the value to all text files in the current directory.
+add-content filename.txt -value (Get-Date) -> appends the date to a specified file in the current directory and shows the date in PS console.
+
+$get = Get-Content blabla.txt
+Add-Content new1.txt -Value $get	-> takes the content from a file and stores it in a variable.
+get-content new1.txt
+			
+Add-Content NewFile.txt -Value (Get-Content blabla.txt)
+get-content NewFile.txt			-> creates a new file and copies the content of an existing file into the new file.
+////////////////////////////////////////////////////////////////////
+
+###Clear-Content### -> deletes the content of an item, but it does not delete the itemm such as deleting the text from the file.
+////////////////////////////////////////////////////////////////////
+clear-content -Path or use ls and cd then -> clear-content filename.txt -> deletes the content from the file filename.txt 
+clear-content -Path or use ls and cd then -> clear-content *txt -> deletes the content from all txt. files. 
+/////////////////////////////////////////////////////////////////////
+
+###Get-Content### -> gets the content of an item at a specified location.
+//////////////////////////////////////////////////////////////////////////
+get-content np.txt -> used to display the content of an np.txt file.
+get-content np.txt -Totalcount 10 -> displays the specific number of lines from the text file. (this example is 10 lines.).
+(get-content np.txt -Totalcount 8) [-1] -> display the specific line of that content.
+get-content np.txt -Tail 1 -> displays the last line of the content from the file. -Tail parameter gets the last line of the file. 
+//////////////////////////////////////////////////////////////////////////
+
+###Get-Date### -> displays the current date and time.
+//////////////////////////////////////////////////////////////////////////
+Get-Date -> shows the current date and time of the systems.
+Get-Date -DispalysHint Date -> Get-Date uses the -DisplayHint parameter with the values argument to get the date only.
+Get-Date -Format "dddd MM/dd/yyyy HH:mm" -> display current date and time with a NET.format specifier.
+(Get-Date) .Month -> display the month. 
+
+###Set-Content | PowerShell write to file### -> writes the new content or replacing the existing  content ina file.
+/////////////////////////////////////////////////////////////////////////////
+set-content -Path pw.txt -Value "End"/get-content pw.txt		-> creates a new file and writes to it.
+set-content pw.txt -Value "From end to start" -> replaces the content of a file in the current directory. 
+set-content dt.txt -Value (Get-Date)/get-content dt.txt -> creates a new file and writes the current date and time. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
