@@ -32,21 +32,65 @@ Get-Date -> shows the current date and time of the systems.
 Get-Date -DispalysHint Date -> Get-Date uses the -DisplayHint parameter with the values argument to get the date only.
 Get-Date -Format "dddd MM/dd/yyyy HH:mm" -> display current date and time with a NET.format specifier.
 (Get-Date) .Month -> display the month. 
+/////////////////////////////////////////////////////////////////////////
 
 ###Set-Content | PowerShell write to file### -> writes the new content or replacing the existing  content ina file.
 /////////////////////////////////////////////////////////////////////////////
-set-content -Path pw.txt -Value "End"/get-content pw.txt		-> creates a new file and writes to it.
+set-content -Path pw.txt -Value "End"/get-content pw.txt -> creates a new file and writes to it.
 set-content pw.txt -Value "From end to start" -> replaces the content of a file in the current directory. 
 set-content dt.txt -Value (Get-Date)/get-content dt.txt -> creates a new file and writes the current date and time. 
+/////////////////////////////////////////////////////////////////////////////
 
+###Out-File### -> sends the output to a specific file. 
+/////////////////////////////////////////////////////////
+get.childitem | out-file -FilePath (use ls and cd) -> sends the output to the get-childitem cmdlet to the text file whose path is specified in the command.
+/////////////////////////////////////////////////////////
 
+###Write-Host### -> is used to write the customized output to a host.
+////////////////////////////////////////////////////////////////////////
+Write-Host (2,4,6,8,10,12) -Separator ", *2= " -> is used to display the numbers from two to twelve.
+Write-Host (2,4,6,8,10,12) -Separator ", *2= " -ForegroundColor Red -BackgroundColor Black -> change colours.
+////////////////////////////////////////////////////////////////////////
 
+###Get-Command### -> is used to get all the commands which are installed on the computer system.
+//////////////////////////////////////////////////////////////////////////////////////////////////
+get-command -> displays akk the cmdlets,aliases and functions on the PowerShell console. 
+get-command -ListImported -> displays all commands in the current session. 
+get-command -Module Microsoft.PowerShell.Security, Microsoft.PowerShell.Utility -> get commands in modules.
+get-command get-childitem -args cert: -syntax -> uses the -ArgumentList and -Syntax parameters to get the syntax of Get-ChildItem cmdlet. 
+get-command * -> display all the commands of all types on a local computer.
+(get-command get-item).modulname -> display the name of a module in which the Get-Item cmdlet originated. 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
+###Get-Help### -> is used to display information about the PowerShell commands and concepts.
+////////////////////////////////////////////////////////////////////////////////////////////
+get-help get-item -> display basic help information about a cmdlet.
+get-help get-item -Detailed -> display more information for a cmdlet.
+get-help get-item -full -> full view of help article.
+get-help get-item -examples -> display the selected portion of the get-item cmdlet. 
+get-help get-item -online -> display an online version of the help of a cmdlet.
+get-help -> display about the help PowerShell system.
+get-help * -> display all available help articles.
+////////////////////////////////////////////////////////////////////////////////////////////
 
+###Start-Process### -> starts one or more processes on the local computer (saps and star = aliases).
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+$variable = path (use pwd and copy paste)/start-process $variable -> first command uses the variable which stores the text file, second command opens a text file by using the variable Start-process cmdlet.
+Start-Process -FilePath "powershell" -Verb RunAs -> start powershell as an admin.
+Start-Process -FilePath "notepad" -Wait -Windowstyle Maximized -> starts the notepad.exe in maximized window.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
+###Test-Path### -> returns $true if all the elements of a file or directory exist, otherwise $false.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+Test-Path -Path "C:\Program files"/True -> checks whether all the elements in the path of file exist or not.
+Test-Path -PATH "HKLM:\Software\Microsoft\PowerShell\1\ShellIds\Microsoft.PowerShell"/True -> check the path in the registry key.
+Test-Path D:\k.txt -OlderThan "December 10, 2019" /True/False -> test a file older than the specified date.
+/////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
+###ForEach-Object### -> executes a block of statements against each item in a collection of an input objects.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+get-childitem C: | foreach-object {write-Host $_} -> use pipe (|) to pass output of get.childitem to the ForEach-Object command.
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
