@@ -1,4 +1,4 @@
-###Get-childItem### -> gets the items and the child items in one or more locations.
+1.###Get-childItem### -> gets the items and the child items in one or more locations.
 //////////////////////////////////////////////////////////////////////////////////////////
 get-childItem -> gets the child item in the current directory or location (displays all the file and subdirectory names).
 get-childItem -Path 'C:\users' -> childitems for a given path. 
@@ -7,7 +7,7 @@ get-childItem -Recurse -> child items in the current directory and its subdirect
 get-childItem -path C:\users -Depth 1 -> using -Depth to determine the number of subdirectory levels which are included in the recursion.
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-###Get-Item### -> gets the items at a particular location.
+2.###Get-Item### -> gets the items at a particular location.
 /////////////////////////////////////////////////////////////////
 get-item . -> represents the current directory.
 get-item * -> all items in the current directory.
@@ -15,7 +15,7 @@ get-item C:\* -> all items in the specified directory or location.
 (get-item D:\). LastAccessTime -> get a property in the specified location.
 /////////////////////////////////////////////////////////////////////////////////
 
-###Get-Location### -> gets the information about current working directory or a location stack.
+3.###Get-Location### -> gets the information about current working directory or a location stack.
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 get-location -> displays a location in the current PowerShell drive.
 set-location C:\windows -> display a current location for different drives. 
@@ -28,20 +28,20 @@ get-location -PSProvider registry -> uses the -PSDrive parameter to see the curr
 function prompt { 'PowerShell: ' + (get-location) + '> '} -> A function that defines the prompt includes a Get-location cmdlet, which is executed whenever a prompt appears in the console.
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-###Set-Item### -> changes the value of an item to the value specified in the command. It changes the value of a variable or registry key.
+4.###Set-Item### -> changes the value of an item to the value specified in the command. It changes the value of a variable or registry key.
 //////////////////////////////////////////////////////////////////////////////
 Set-Item -Path alias:np -Value "C:\windows\notepad.exe" -> is used to create an alias for Notepad.
 Set-Item -Path function:prompt -Value {'PS '+ $(Get-Date -Format t) + " " + $(Get-Location) + '> '} -> used to change the prompt function so that it shows the time before the path.
 ////////////////////////////////////////////////////////////////////////////////////
 
-###Set-location | PowerShell Change directory### -> sets the current PowerShell working location to a specified location. The location could be a directory, a registry location, a subdirectory, or any provider path.
+5.###Set-location | PowerShell Change directory### -> sets the current PowerShell working location to a specified location. The location could be a directory, a registry location, a subdirectory, or any provider path.
 ///////////////////////////////////////////////////////////////////////////////////////
 set-location -Path "HKLM:" -> sets the current location to the root of HKLM: drive.
 set-location -Path "Env:" -PassThru -> sets the current location to the root of Env: drive. It uses a -PassThru parameter to direct PowerShell to return a PathInfo object, which represents the Env: location.
 set-location D: -> sets the current location to the D:drive.
 //////////////////////////////////////////////////////////////////////////////////////////
 
-###New-Item | Create folder### -> creates the files and folders in the file system and also creates registry keys and entries in the registry. With the creation of a file, it also adds the initial content to the file.
+6.###New-Item | Create folder### -> creates the files and folders in the file system and also creates registry keys and entries in the registry. With the creation of a file, it also adds the initial content to the file.
 ///////////////////////////////////////////////////////////////////////////////////////////
 new-item powershell.txt (type: put file = created) -> creates a text file in the present working directory.
 new-item ps.txt -value "Windows OS" -> creates a text file and also passes the string to the file, which is followed by a -Value parameter in the cmdlet.
@@ -49,7 +49,7 @@ new-item -Path "C:\" -Name "Powershell" -ItemType "directory" -> creates the dir
 new-item -Path "C:\text.txt", "E:\ps.txt" -> creates the new file in the two different directories. If you want to create multiple items, the -Path parameter accepts multiple strings.
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-###Copy-Item | PowerShell Copy file### -> copies an item form one location to another location within a namespace.
+7.###Copy-Item | PowerShell Copy file### -> copies an item form one location to another location within a namespace.
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Copy-Item "powershell.txt" -Destination "D:\Windows" -> copies the powershell.txt file to the D:\windows directory. The original file is not deleted.
 Copy-Item -Path "C:\Powershell" -Destination "D:\files" -Recurse -> copies the content of C:\Javatpoint source directory and creates a new destination directory. The new destination directory, \files, is created in a D:\ drive.
@@ -57,7 +57,7 @@ Copy-Item -Path "C:\Powershell" -Destination "C:\powershell" -Recurse -> copies 
 Copy-Item "s.txt" -Destination "D:\jtp\s1.txt" -> copy the file s.txtfrom the D:\directory to the D:\jtp directory and change the file name from s.txt to s1.txt.
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-###Move-Item | PowerShell Move file### -> moves an item from one location to another location. It moves an item, including its contents, properties, and child items, from one location to another.
+8.###Move-Item | PowerShell Move file### -> moves an item from one location to another location. It moves an item, including its contents, properties, and child items, from one location to another.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 Move-Item -Path C:\Powershell\s.txt -Destination D:\s.txt -> moves the s.txt file from C:\drive to D:\drive.
 Move-Item -Path D:\jtp\s1.txt -Destination D:\users\sk.txt -> moves the s1.txt file from D:\jtp location to D:\users location and renames it from s1.txt to sk.txt.
@@ -65,14 +65,14 @@ Move-Item -Path C:\Powershell -Destination C:\powershell -> moves the C:\javatpo
 Move-Item -Path .\*.txt -Destination D:\powershell -> moves all of the .txt files from the current directory to the D:\powershelldirectory.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-###Remove-Item | PowerShell Remove file### -> deletes one or more specified items. Because many providers support this cmdlet so that it can delete many different types of items, including files, folders, variables, registry keys, aliases, and functions.
+9.###Remove-Item | PowerShell Remove file### -> deletes one or more specified items. Because many providers support this cmdlet so that it can delete many different types of items, including files, folders, variables, registry keys, aliases, and functions.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 remove-item s.txt -> deletes a given s.txt file in the current drive.
 remove-item C:\powershell\*.txt -> deletes all of the files that have .txt extension from the D:\PowerShell folder.
 remove-item * -Include *.doc -Exclude *1* -> deletes all the files that have a .doc file name extension and a name that does not include 1 from the current folder. It uses the wildcard character '*' to specify the current. And it uses the -Include and -Exclude parameters to specify the files to delete.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-###Rename-Item | PowerShell Rename file### -> renames an item in a PowerShell provider namespace. It changes the name of a specified item. It does not affect the content of an item being renamed. The ri, rm, rmdir, del, erase, and rd are the aliases of the Rename-Item cmdlet.
+10.###Rename-Item | PowerShell Rename file### -> renames an item in a PowerShell provider namespace. It changes the name of a specified item. It does not affect the content of an item being renamed. The ri, rm, rmdir, del, erase, and rd are the aliases of the Rename-Item cmdlet.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 rename-item .txt -Newname c.txt -> renames the file s.txt to c.txt in the current directory.
 get-childItem + get-childItem *txt | rename-item -NewName { $_.Name -replace '.txt','.doc' } -> renames all the .txt files to .doc files.
