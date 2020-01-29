@@ -4,7 +4,7 @@ get-childItem -> gets the child item in the current directory or location (displ
 get-childItem -Path 'C:\users' -> childitems for a given path. 
 get-childItem -Path 'C:\' -Name -> name of child items in a given directory or location. 
 get-childItem -Recurse -> child items in the current directory and its subdirectories.
-get-childItem -path C:\users -Depth 1 -> using -Depth to determine the number of subdirectory levels which are included in the recusrion.
+get-childItem -path C:\users -Depth 1 -> using -Depth to determine the number of subdirectory levels which are included in the recursion.
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 ###Get-Item### -> gets the items at a particular location.
