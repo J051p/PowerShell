@@ -92,8 +92,19 @@ Test-Path D:\k.txt -OlderThan "December 10, 2019" /True/False -> test a file old
 get-childitem C: | foreach-object {write-Host $_} -> use pipe (|) to pass output of get.childitem to the ForEach-Object command.
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+23. ###Sort-Object### -> sorts the objects in an order based on the property values. 
+///////////////////////////////////////////////////////////////////////////////////////
+get-childitem | sort-object -> sort the files and folders in current directory, then the objects are sent to the Sort-object cmdlet.
+get-childitem | sort-object -Property Lenght -> sort the files and folders in the current directory on the basis of lenght.
+get-childitem | sort-object -Property ID -Descending -> sort the information of the history of PowerShell session on the basis of Id.
+///////////////////////////////////////////////////////////////////////////////////////
 
-
+24. ###Where-Object### -> selects the objects from a collection based on their property values.
+////////////////////////////////////////////////////////////////////////////////////////////////
+Get-Service | Where-Object {$_.Status -eq "Stopped"} -> get the stopped Services.
+Get-Service | where Status -eq "Stopped" -> get the stopped Services.
+Get-Process | Where-Object {$_.ProcessName -Match ^A.*"} -> gets the name of services that starts with the letter A.
+//////////////////////////////////////////////////////////////////////////////////////////////// 
 
 
 
