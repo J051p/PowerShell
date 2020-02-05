@@ -1,0 +1,123 @@
+1. ###Variables### -> fundamental part of the Windows PowerShell, can store result of commands and the elements (paths, names, settings and values).
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Valid variable name: $myVariable
+Invalid variable name: myVariable
+
+Create a variable -> $vrb = 101 (use = to assign)/echo $vrb
+		  -> $a = 101 / $a (use echo or $ to print out)
+
+Create a string -> $mysubject = "PowerShell"/echo $mysubject
+
+Change value -> $powershell = 100 / $powershell -> 100
+	     -> $powershell = "Windows operating system" / $powershell -> Windows operating system
+
+Delete a variable -> use clear-variable cmdlet or change the value
+		  -> clear-variable -Name powershell (deletes string "Windows operating system")
+		  -> $OS = $null -> prints nothing
+
+Type of variable -> use GetType() method.
+		 -> $a.GetType() -> prints out Int32
+
+Types of variables -> User-created variables = created and mantained by the user.
+	           -> Automatic variables = variables that can store the state of PowerShell, values are changed by the PowerShell to mantain their accuracy.
+		   -> Preference variables = variables that stores user preferences for the Windows PowerShell, populated with the default values, any user can change the value.
+
+###AUTOMATIC VARIABLES###	
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+$$ -> is used to represent the last token in the last line, which is received by the session.
+$? -> is used to represent the execution status of the last operation. If there is no error, it returns a True value otherwise False.
+$^ -> is used to represent the first token in the last line, which is received by the session.
+$_ -> acts as $PSItem. It contains the current object in the pipeline object.
+$args -> contains an array of values for undeclared parameters that are passed to a script, function, or script block.
+$ConsoleFileName -> is used to represent the path of the console file, which was recently used in the session.
+$Error -> is used to contain an array of error objects which represent the most recent errors.
+$Event -> is used to contain an object of PSEventArgs. PSEventArgs is an object used to represent an event that is being processed.
+$EventSubscriber -> is used to contain an object of PSEventSubscriber. This object shows you an event subscriber of an event that is being processed.
+$EventArgs -> is used to contain an object which represents the argument of the first event.
+$false -> is used to represent the False.
+$foreach -> is used to contain the enumerators of a ForEach loop. This variable exists only while the ForEach loop is executing. And it will be deleted after completion of the loop.
+$Home -> is used to represent the full path of the user's home directory.
+$input -> contains an enumerator that enumerates all the inputs passed to the function. It is only available to script blocks and functions.
+$Host -> contains an object which shows a current host application for the Windows PowerShell.
+$IsLinux -> If the current session is running on the Linux operating system, this variable contains a $True, otherwise $False.
+$IsWindows -> If the current session is running on the Windows operating system, this variable contains a $True, otherwise $False.
+$IsMacOS -> If the current session is running on MacOS operating system, this variable contains a $True, otherwise $False.
+$null -> is used to represent a null or empty value. We can use it to represent an absent or undefined value in script and commands.
+$PID -> displays the PID of the process, which is hosting the session of the current PowerShell.
+$PSItem -> acts as $_. It contains the current object in the pipeline object.
+$PSHome -> represents the full path of the installation directory for the Windows PowerShell.
+$PSVersionTable -> is used to represent the read-only hash table, which displays the details about the version of PowerShell running in the current session.
+$PWD -> is used to contain the path object, which shows you a full path of the current directory.
+$ShellId -> is used to represent the identifier of the current shell.
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+###PREFERENCE VARIABLES###
+///////////////////////////////////////////////////////////////////////////////////////////////
+Variable			Default Value
+
+$ConfirmPreference	->	High
+$DebugPreference	->	SilentlyContinue
+$ErrorActionPreference	->	Continue
+$ErrorView		->	NormalView
+$FormatEnumerationLimit	->	4
+$InformationPreference	->	SilentlyContinue
+$LogCommandHealthEvent	->	False (not logged)
+$LogCommandLifecycleEvent ->	False (not logged)
+$LogEngineHealthEvent	->	True (logged)
+$LogEngineLifecycleEvent ->	True (logged)
+$LogProviderLifecycleEvent ->	True (logged)
+$LogProviderHealthEvent	->	True (logged)
+$MaximumHistoryCount    ->	4096
+$OFS			->	(Space character (" "))
+
+Variable			Default Value
+$OutputEncoding         ->	UTF8Encoding object
+$ProgressPreference	->	Continue
+$PSDefaultParameterValues ->	(None - empty hash table)
+$PSEmailServer		->	(None)
+$PSModuleAutoLoadingPreference 	All
+$PSSessionApplicationName ->	WSMAN
+$PSSessionConfigurationName ->	http://schemas.microsoft.com/PowerShell/microsoft.PowerShell
+$PSSessionOption	->	See $PSSessionOption
+$VerbosePreference	->	SilentlyContinue
+$WarningPreference	->	Continue
+$WhatIfPreference	->	0
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
