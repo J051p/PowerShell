@@ -84,12 +84,25 @@ $WarningPreference	->	Continue
 $WhatIfPreference	->	0
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
+###Array###
+//////////////////////////////////////////////////////////////////////////////////////////////
+Creating and initializing ana array -> $variable_name = value1, value2, ...
+$k = 10, 15, 20, 11, 5 / echo $k $
+Accessing array elements -> $K / $K [2] -> 20 
+			 -> $K / $K [-1] -> prints out last element (5)
+Size of an array -> $K.Lenght
+Manipulation of an array -> $a[1] = 35 (before was 25 now is 35)
+Initializing an empty array -> $variable_name = @()
+Remove element from an array -> $array = ($array[1]$array[2]array[3])
+//////////////////////////////////////////////////////////////////////////////////////////////
 
-
-
-
-
-
+###Hashtable###
+//////////////////////////////////////////////////////////////////////////////////////////////
+Create empty hashtable -> $hashtable = @{}
+Create regular hashtable -> $person = @{ name = "Josip"; town = "Rovinj"; age = 24 } / $person -> prints out full hashtable
+Print out keys -> $person.keys
+Print out values -> $person.values
+Count keys/values -> $person.count 
 
 
 
